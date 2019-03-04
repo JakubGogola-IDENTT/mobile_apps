@@ -50,11 +50,13 @@ class MainActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.answer).text.clear()
     }
 
+    @SuppressLint("SetTextI18n")
     fun restartButton(view: View) {
         logic.restart()
         this.setNumbers()
         findViewById<TextView>(R.id.result).text = ""
         findViewById<TextView>(R.id.hint).text = ""
+        findViewById<TextView>(R.id.points).text = "Points: ${logic.totalPoints}"
     }
 
     @SuppressLint("SetTextI18n")
