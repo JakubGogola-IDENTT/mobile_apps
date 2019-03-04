@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Clicker game</string>
+    <string name="points_0">Points: 0</string>
+    <string name="restart">Restart</string>
+    <string name="check">Check</string>
+    <string name="answer_is">Answer is</string>
+    <string name="oracle">Oracle</string>
+    <string name="i_m_thinking_about_number_between">I\'m thinking about number between...</string>
+    <string name="and">and</string>
+    <string name="_1">1</string>
+    <string name="_20">20</string>
+    <string name="your_answer">your answer...</string>
+    <string name="hint">Hint</string>
+    <string name="wrong">Result</string>
+</resources>
