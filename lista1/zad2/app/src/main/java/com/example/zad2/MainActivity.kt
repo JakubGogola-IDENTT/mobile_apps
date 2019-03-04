@@ -1,6 +1,7 @@
 package com.example.zad2
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             val result = logic.check(answer)
 
             if(result) {
+                findViewById<TextView>(R.id.result).setTextColor(Color.parseColor("#eaaa00"))
                 findViewById<TextView>(R.id.result).text = "Correct!"
                 findViewById<TextView>(R.id.hint).text = ""
                 findViewById<TextView>(R.id.points).text = "Points: ${logic.totalPoints}"
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                 this.setNumbers()
             } else {
                 val order = logic.checkOrder(answer)
+                findViewById<TextView>(R.id.result).setTextColor(Color.parseColor("#ff0000"))
                 findViewById<TextView>(R.id.result).text = "Wrong! Number is $order than your answer"
             }
         }
