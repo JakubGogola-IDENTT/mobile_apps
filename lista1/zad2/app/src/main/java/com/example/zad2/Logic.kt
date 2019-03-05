@@ -20,10 +20,10 @@ class Logic {
     private var divisors: MutableList<Int> = mutableListOf(1)
 
     private fun numberDivisors() {
-        this.divisors = mutableListOf(1, this.secretNum)
+        this.divisors.clear()
         val sqrt = sqrt(this.secretNum.toDouble()).toInt()
 
-        for(i in 2..sqrt) {
+        for(i in 1..sqrt) {
             if (this.secretNum % i == 0) {
                 this.divisors.add(i)
             }
