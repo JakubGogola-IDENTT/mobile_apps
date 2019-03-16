@@ -6,6 +6,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView"/>
     <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:gravity="center">
@@ -13,135 +17,135 @@
         <TableRow android:layout_width="wrap_content" android:layout_height="match_parent">
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_00"
+                    android:layout_height="wrap_content" android:id="@+id/field_0_0"
+                    android:background="@color/colorAccent" android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless" android:onClick="onButtonClick"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/field_0_1"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_01"
+                    android:layout_height="wrap_content" android:id="@+id/field_0_2"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_02"
+                    android:layout_height="wrap_content" android:id="@+id/field_0_3"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_03"
-                    android:background="@color/colorAccent" android:layout_weight="1"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_04"
-                    android:background="@color/colorAccent" android:layout_weight="1"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-        </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_10"
-                    android:background="@color/colorAccent" android:layout_weight="1"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_11"
-                    android:background="@color/colorAccent" android:layout_weight="1"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_12"
-                    android:background="@color/colorAccent" android:layout_weight="1"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_13"
-                    android:background="@color/colorAccent" android:layout_weight="1"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_14"
+                    android:layout_height="wrap_content" android:id="@+id/field_0_4"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
         </TableRow>
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_20"
+                    android:layout_height="wrap_content" android:id="@+id/field_1_0"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_21"
+                    android:layout_height="wrap_content" android:id="@+id/field_1_1"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_22"
+                    android:layout_height="wrap_content" android:id="@+id/field_1_2"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_23"
+                    android:layout_height="wrap_content" android:id="@+id/field_1_3"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_24"
-                    android:background="@color/colorAccent" android:layout_weight="1"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-        </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_30"
-                    android:background="@color/colorAccent" android:layout_weight="1"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_31"
-                    android:background="@color/colorAccent" android:layout_weight="1"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_32"
-                    android:background="@color/colorAccent" android:layout_weight="1"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_33"
-                    android:background="@color/colorAccent" android:layout_weight="1"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_34"
+                    android:layout_height="wrap_content" android:id="@+id/field_1_4"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
         </TableRow>
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_40"
+                    android:layout_height="wrap_content" android:id="@+id/field_2_0"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_41"
+                    android:layout_height="wrap_content" android:id="@+id/field_2_1"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_42"
+                    android:layout_height="wrap_content" android:id="@+id/field_2_2"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_43"
+                    android:layout_height="wrap_content" android:id="@+id/field_2_3"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/field_44"
+                    android:layout_height="wrap_content" android:id="@+id/field_2_4"
+                    android:background="@color/colorAccent" android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+        </TableRow>
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/field_3_0"
+                    android:background="@color/colorAccent" android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/field_3_1"
+                    android:background="@color/colorAccent" android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/field_3_2"
+                    android:background="@color/colorAccent" android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/field_3_3"
+                    android:background="@color/colorAccent" android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/field_3_4"
+                    android:background="@color/colorAccent" android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+        </TableRow>
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/field_4_0"
+                    android:background="@color/colorAccent" android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/field_4_1"
+                    android:background="@color/colorAccent" android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/field_4_2"
+                    android:background="@color/colorAccent" android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/field_4_3"
+                    android:background="@color/colorAccent" android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/field_4_4"
                     android:background="@color/colorAccent" android:layout_weight="1"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
         </TableRow>
