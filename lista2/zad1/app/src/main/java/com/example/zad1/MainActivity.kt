@@ -7,14 +7,16 @@ import android.widget.Button
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
+    var model = Model()
+    var controller = Controller()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
 
-    fun onButtonClick(view: View) {
-        findViewById<TextView>(R.id.textView).text = view.id.toString()
 
+    fun onButtonClick(view: View) {
+        val id = view.id
     }
 }
