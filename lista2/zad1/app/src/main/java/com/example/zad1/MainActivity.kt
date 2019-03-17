@@ -1,5 +1,6 @@
 package com.example.zad1
 
+import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,15 +9,21 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     var model = Model()
-    var controller = Controller()
+
+    private lateinit var buttons: Buttons
+    lateinit var controller: Controller
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        buttons = Buttons()
+        controller = Controller(model, buttons, this)
     }
 
 
+    @SuppressLint("SetTextI18n")
     fun onButtonClick(view: View) {
-        val id = view.id
+        controller.markField(view.id)
     }
+
 }

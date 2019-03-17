@@ -3,7 +3,7 @@ package com.example.zad1
 import com.example.zad1.R
 
 class Buttons {
-    lateinit var buttonIDs: MutableMap<Int, Pair<Int, Int>>
+    var buttonIDs: MutableMap<Int, Pair<Int, Int>> = mutableMapOf()
 
     init {
         // First row
