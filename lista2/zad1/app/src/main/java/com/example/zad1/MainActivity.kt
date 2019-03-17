@@ -22,8 +22,12 @@ class MainActivity : AppCompatActivity() {
 
 
     @SuppressLint("SetTextI18n")
-    fun onButtonClick(view: View) {
+    fun onFieldButtonClick(view: View) {
         controller.markField(view.id)
+    }
+
+    fun onResetButtonClick(view: View) {
+        controller.resetFields()
     }
 
 }

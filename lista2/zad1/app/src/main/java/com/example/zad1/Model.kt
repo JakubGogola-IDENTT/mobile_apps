@@ -53,6 +53,7 @@ class Model {
     }
 
     fun check(): Boolean {
+        //FIXME: POPRAW TO KURWA!!!!!
         if (!checkHorizontal()) {
             if (!checkVertical()) {
                 if (!checkCross()) {
@@ -79,6 +80,8 @@ class Model {
                         break
                     }
                 }
+            } else {
+                isRowValid = false
             }
             if (isRowValid) {
                 winner = player
@@ -104,6 +107,8 @@ class Model {
                         break
                     }
                 }
+            } else {
+                isColumnValid = false
             }
             if (isColumnValid) {
                 winner = player

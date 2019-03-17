@@ -14,11 +14,26 @@ class Controller(private var model: Model, private var buttons: Buttons, private
 
         val symbol = model.markField(row, column)
 
-       when (symbol) {
+        when (symbol) {
             Symbol.X -> mainActivity.findViewById<Button>(id).text = "X"
             Symbol.O -> mainActivity.findViewById<Button>(id).text = "O"
             Symbol.EMPTY -> mainActivity.findViewById<TextView>(R.id.errorText).text = "Invalid move!"
         }
 
+        val hasAnyoneWon =  model.check()
+
+        if (hasAnyoneWon) {
+            mainActivity.findViewById<TextView>(R.id.errorText).text = "WON!!!!!!!!!!!"
+        }
+    }
+
+    fun resetFields() {
+        model.reset()
+
+        for ((k, _) in buttons.buttonIDs) {
+            mainActivity.findViewById<Button>(k).text = ""
+        }
+
+        mainActivity.findViewById<TextView>(R.id.errorText).text = ""
     }
 }
