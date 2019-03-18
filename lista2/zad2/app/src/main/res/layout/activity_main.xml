@@ -6,14 +6,58 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" tools:layout_editor_absoluteY="8dp"
+            tools:layout_editor_absoluteX="8dp" android:gravity="center">
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_weight="1"/>
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/hangmanImage"
+                android:contentDescription="@string/hangmanPicture" android:layout_weight="1"
+                app:srcCompat="@drawable/hangman_0"/>
+        <TextView
+                android:text="@string/word"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/word" android:layout_weight="0.3"
+                android:textAlignment="center" android:textColor="#000" android:textSize="30sp"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/inputText" android:layout_weight="0.5" android:hint="@string/input"
+                android:autofillHints="" android:textAlignment="center"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:gravity="center" android:layout_weight="0.2">
+            <Button
+                    android:text="@string/checkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/checkButton"
+                    style="@style/Widget.AppCompat.Button.Borderless" android:background="@color/colorAccent"
+                    android:layout_margin="1dp" android:onClick="onCheckButtonClick"/>
+            <Button
+                    android:text="@string/resetButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/resetButton"
+                    style="@style/Widget.AppCompat.Button.Borderless" android:background="@color/colorAccent"
+                    android:layout_margin="1dp" android:onClick="onResetButtonClick"/>
+        </LinearLayout>
+        <TextView
+                android:text="@string/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/info" android:layout_weight="0.2"
+                android:textSize="14sp" android:textAlignment="textStart" android:textStyle="bold"
+                android:textColor="#000"/>
+        <TextView
+                android:text="@string/letters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/letters" android:layout_weight="1"
+                android:textAlignment="center" android:textSize="24sp"/>
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

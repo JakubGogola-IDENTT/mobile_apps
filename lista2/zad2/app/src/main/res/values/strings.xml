@@ -1,3 +1,42 @@
 <resources>
-    <string name="app_name">zad2</string>
+    <string name="app_name">Hangman - Programming Languages</string>
+    <string name="hangmanPicture">hangman</string>
+    <string name="word">Word</string>
+    <string name="info">Incorrect letters</string>
+    <string name="checkButton">Check</string>
+    <string name="resetButton">Reset</string>
+    <string name="letters"> </string>
+    <string name="input">Your letter</string>
+    <string-array name="words_array">
+        <item>Simula</item>
+        <item>Java</item>
+        <item>Smalltalk</item>
+        <item>Cpp</item>
+        <item>Go</item>
+        <item>Kotlin</item>
+        <item>JavaScript</item>
+        <item>Haskell</item>
+        <item>Prolog</item>
+        <item>OCaml</item>
+        <item>Ruby</item>
+        <item>Python</item>
+        <item>Fortran</item>
+        <item>Cobol</item>
+        <item>Perl</item>
+        <item>Oz</item>
+        <item>PHP</item>
+        <item>Scala</item>
+        <item>Pascal</item>
+        <item>Ada</item>
+        <item>VisualBasic</item>
+        <item>Erlang</item>
+        <item>Scheme</item>
+        <item>Processing</item>
+        <item>Swift</item>
+        <item>ObjectiveC</item>
+        <item>Julia</item>
+        <item>C</item>
+        <item>R</item>
+        <item>Rust</item>
+    </string-array>
 </resources>
