@@ -34,4 +34,14 @@ class Buttons(private var mainActivity: MainActivity) {
             }
         }
     }
+
+    fun findKey(coordinates: Pair<Int, Int>): Int? {
+        for ((k, v) in buttonIDs) {
+            if (v.first == coordinates.first && v.second == coordinates.second) {
+                return k
+            }
+        }
+
+        return null
+    }
 }

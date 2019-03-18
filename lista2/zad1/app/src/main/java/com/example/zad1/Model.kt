@@ -27,20 +27,24 @@ class Model {
 
     fun markField(row: Int, column: Int): Symbol {
         val field = board[row][column]
-        if (field.symbol == Symbol.EMPTY && field.player == Player.NONE) {
+        if (field.symbol == Symbol.EMPTY && field.player == Player.NONE && !gameEnd) {
             field.symbol = playersSymbols[currentPlayer]!!
             field.player = currentPlayer
 
-            currentPlayer = if (currentPlayer == Player.FIRST) {
-                Player.SECOND
-            } else {
-                Player.FIRST
-            }
+            changePlayer()
 
             return field.symbol
         }
 
         return Symbol.EMPTY
+    }
+
+    fun changePlayer() {
+        currentPlayer = if (currentPlayer == Player.FIRST) {
+            Player.SECOND
+        } else {
+            Player.FIRST
+        }
     }
 
     private fun shuffleSymbols() {

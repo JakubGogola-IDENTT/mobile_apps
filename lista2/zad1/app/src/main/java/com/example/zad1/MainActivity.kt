@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
         controller.resetFields()
     }
 
-    fun onChangeGameTypeButtonClick(view: View) {
-
+    fun onBotButtonClick(view: View) {
+        controller.attachBot()
     }
 
 }
