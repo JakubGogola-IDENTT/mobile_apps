@@ -17,16 +17,21 @@ class Controller(private var model: Model, private var buttons: Buttons, private
         when (symbol) {
             Symbol.X -> mainActivity.findViewById<Button>(id).text = "X"
             Symbol.O -> mainActivity.findViewById<Button>(id).text = "O"
-            Symbol.EMPTY -> mainActivity.findViewById<TextView>(R.id.errorText).text = "Invalid move!"
+            Symbol.EMPTY -> mainActivity.findViewById<TextView>(R.id.infoText).text = "Invalid move!"
         }
 
-        val hasAnyoneWon =  model.check()
+        val hasAnyoneWon = model.check()
 
         if (hasAnyoneWon) {
-            mainActivity.findViewById<TextView>(R.id.errorText).text = "WON!!!!!!!!!!!"
+            mainActivity.findViewById<TextView>(R.id.infoText).text =
+                "${model.playersSymbols[model.winner]} has won!"
+        } else if (!model.gameEnd) {
+            mainActivity.findViewById<TextView>(R.id.infoText).text =
+                "${model.playersSymbols[model.currentPlayer]} is playing"
         }
     }
 
+    @SuppressLint("SetTextI18n")
     fun resetFields() {
         model.reset()
 
@@ -34,6 +39,6 @@ class Controller(private var model: Model, private var buttons: Buttons, private
             mainActivity.findViewById<Button>(k).text = ""
         }
 
-        mainActivity.findViewById<TextView>(R.id.errorText).text = ""
+        mainActivity.findViewById<TextView>(R.id.infoText).text = "Let's play"
     }
 }

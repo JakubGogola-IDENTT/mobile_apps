@@ -2,7 +2,8 @@
     <string name="app_name">Tic-Tac-Toe game</string>
     <string name="title">Tic-Tac-Toe</string>
     <string name="gameButton">Bot</string>
-    <string name="errorText">TextView</string>
+    <string name="errorText"> </string>
     <string name="botButton">Bot</string>
     <string name="resetButton">Reset</string>
+    <string name="infoText">Let\'s play!</string>
 </resources>

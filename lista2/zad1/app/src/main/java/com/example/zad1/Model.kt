@@ -8,6 +8,8 @@ class Model {
 
     var currentPlayer: Player = Player.FIRST
 
+    var gameEnd: Boolean = false
+
     //Array with dimensions 4 x 4
     var board = arrayOf<Array<Field>>()
 
@@ -53,15 +55,16 @@ class Model {
     }
 
     fun check(): Boolean {
-        //FIXME: POPRAW TO KURWA!!!!!
-        if (!checkHorizontal()) {
-            if (!checkVertical()) {
-                if (!checkCross()) {
-                    return false
+        if (!gameEnd) {
+            if (!checkHorizontal()) {
+                if (!checkVertical()) {
+                    if (!checkCross()) {
+                        return false
+                    }
                 }
             }
         }
-
+        gameEnd = true
         return true
     }
 
@@ -172,5 +175,6 @@ class Model {
         shuffleSymbols()
         winner = Player.NONE
         currentPlayer = Player.FIRST
+        gameEnd = false
     }
 }
