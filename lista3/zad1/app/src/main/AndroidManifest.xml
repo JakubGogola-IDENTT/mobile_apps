@@ -19,6 +19,7 @@
         <activity android:name=".AddTaskActivity"/>
         <activity android:name=".listeners.TaskTypeSpinnerActivity"/>
         <activity android:name=".listeners.TaskPrioritySpinnerActivity"/>
+        <activity android:name=".listeners.SortSpinnerActivity"/>
     </application>
 
 </manifest>

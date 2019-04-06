@@ -1,5 +1,6 @@
 package com.example.zad1
 
+import android.text.format.DateFormat
 import com.example.zad1.containers.Task
 
 class Model {
@@ -16,8 +17,19 @@ class Model {
         }
     }
 
+    fun prioritySelector(task: Task): Int {
+        return task.taskPriority.getPriorityIntValue()
+    }
+
+    fun typeSelector(task: Task): String {
+        return task.taskType.type
+    }
+
+    fun nameSelector(task: Task): String {
+        return task.taskName
+    }
+
     fun clearListOfTasks() {
         listOfTask.clear()
     }
-
 }
