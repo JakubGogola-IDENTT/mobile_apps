@@ -10,10 +10,13 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:gravity="center_horizontal">
+        <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/tasksList" android:layout_weight="1"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:gravity="center_horizontal">
+                android:layout_height="wrap_content" android:gravity="center_horizontal" android:layout_margin="10dp">
             <Button
                     android:text="@string/addTaskButton"
                     android:layout_width="wrap_content"
@@ -21,8 +24,5 @@
                     style="@style/Widget.AppCompat.Button.Borderless" android:onClick="onAddTaskButtonClick"
                     android:background="#f00"/>
         </LinearLayout>
-        <ListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/tasksList"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

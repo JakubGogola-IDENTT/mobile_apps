@@ -31,6 +31,12 @@ class MainActivity : AppCompatActivity() {
 
         taskTypesArray = resources.getStringArray(R.array.task_types)
         taskPrioritiesArray = resources.getStringArray(R.array.task_priorities)
+
+        listView.setOnItemLongClickListener { _, _, position, _ ->
+            model.removeTaskAt(position)
+            toDoListAdapter.notifyDataSetChanged()
+            true
+        }
     }
 
     fun onAddTaskButtonClick(view: View) {

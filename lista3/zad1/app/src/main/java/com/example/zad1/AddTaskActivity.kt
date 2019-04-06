@@ -25,27 +25,14 @@ class AddTaskActivity : AppCompatActivity() {
     lateinit var taskPriority: TaskPriority
 
     lateinit var taskTypeSpinner: Spinner
-    lateinit var taskTypeArrayAdapter: ArrayAdapter<String>
-
     lateinit var taskPrioritySpinner: Spinner
-    lateinit var taskPriorityArrayAdapter: ArrayAdapter<String>
-
-    private lateinit var taskTypeStrings: Array<String>
-    private lateinit var taskPriorityStrings: Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_task_activity)
 
-        val extra = intent.getStringArrayExtra("taskTypesArray")
-
-        taskTypeStrings = arrayOf("Home", "Work", "Studies", "Hobby", "Other")
-        taskPriorityStrings = arrayOf("I", "II", "III", "IV", "V")
-
         //Task type spinner adapter
         taskTypeSpinner = findViewById(R.id.taskTypeSpinner)
-        taskTypeArrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,
-                taskTypeStrings)
 
         ArrayAdapter.createFromResource(
             this,
@@ -55,7 +42,7 @@ class AddTaskActivity : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             taskTypeSpinner.adapter = adapter
         }
-        taskTypeSpinner.onItemSelectedListener = TaskTypeSpinnerActivity(this, extra)
+        taskTypeSpinner.onItemSelectedListener = TaskTypeSpinnerActivity(this)
 
         //Task priority spinner
         taskPrioritySpinner = findViewById(R.id.taskPrioritySpinner)
@@ -84,7 +71,9 @@ class AddTaskActivity : AppCompatActivity() {
         taskName = findViewById<EditText>(R.id.taskName).text.toString()
         println(date)
         println(time)
-        val newTask = Task(taskName, date, time, TaskType.HOME, TaskPriority.I)
+        println(taskType)
+        println(taskPriority)
+        val newTask = Task(taskName, date, time, taskType, taskPriority)
         addTaskIntent.putExtra("newTask", newTask)
         setResult(Activity.RESULT_OK, addTaskIntent)
         finish()
