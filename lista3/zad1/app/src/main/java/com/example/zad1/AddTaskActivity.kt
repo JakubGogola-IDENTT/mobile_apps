@@ -21,6 +21,8 @@ class AddTaskActivity : AppCompatActivity() {
     lateinit var time: Time
     lateinit var date: Date
     lateinit var taskName: String
+    lateinit var taskType: TaskType
+    lateinit var taskPriority: TaskPriority
 
     lateinit var taskTypeSpinner: Spinner
     lateinit var taskPrioritySpinner: Spinner
