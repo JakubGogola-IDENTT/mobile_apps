@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var controller: Controller
     private lateinit var listView: ListView
     private lateinit var toDoListAdapter: ToDoListAdapter
+    private lateinit var taskTypesArray: Array<String>
+    private lateinit var taskPrioritiesArray: Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +29,14 @@ class MainActivity : AppCompatActivity() {
         listView = findViewById(R.id.tasksList)
         listView.adapter = toDoListAdapter
 
+        taskTypesArray = resources.getStringArray(R.array.task_types)
+        taskPrioritiesArray = resources.getStringArray(R.array.task_priorities)
     }
 
     fun onAddTaskButtonClick(view: View) {
         val addTaskIntent = Intent(this, AddTaskActivity::class.java)
+        addTaskIntent.putExtra("taskTypesArray", taskTypesArray)
+        addTaskIntent.putExtra("taskPrioritiesArray", taskPrioritiesArray)
         startActivityForResult(addTaskIntent, 200)
     }
 
@@ -40,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 200) {
             val task = data?.getSerializableExtra("newTask") as Task
             model.addTask(task)
-            println(model.listOfTask.size)
             toDoListAdapter.notifyDataSetChanged()
         }
     }

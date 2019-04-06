@@ -11,11 +11,8 @@ import com.example.zad1.enums.TaskPriority
 class TaskPrioritySpinnerActivity(private val addTaskActivity: AddTaskActivity) :
     Activity(), AdapterView.OnItemSelectedListener {
 
-
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        if (parent != null) {
-            addTaskActivity.taskPriority = TaskPriority.valueOf(parent.getItemAtPosition(position).toString())
-        }
+            addTaskActivity.taskPriority = TaskPriority.I
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {

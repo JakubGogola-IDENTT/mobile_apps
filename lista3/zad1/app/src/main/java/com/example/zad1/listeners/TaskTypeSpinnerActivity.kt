@@ -8,13 +8,15 @@ import com.example.zad1.AddTaskActivity
 import com.example.zad1.R
 import com.example.zad1.enums.TaskType
 
-class TaskTypeSpinnerActivity(private val addTaskActivity: AddTaskActivity) :
+class TaskTypeSpinnerActivity(private val addTaskActivity: AddTaskActivity, private val res: Array<String>) :
     Activity(), AdapterView.OnItemSelectedListener {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        if (parent != null) {
-            addTaskActivity.taskType = TaskType.valueOf(parent.getItemAtPosition(position).toString())
-        }
+        addTaskActivity.taskType = TaskType.HOME
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {

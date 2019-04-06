@@ -62,11 +62,11 @@
             <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/taskTypeSpinner" android:layout_weight="1"
-                    android:entries="@array/task_types"/>
+            />
             <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/taskPrioritySpinner"
-                    android:layout_weight="1" android:entries="@array/task_priorities"/>
+                    android:layout_weight="1"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
