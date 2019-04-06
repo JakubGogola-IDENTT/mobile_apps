@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TODO List</string>
+    <string name="addTaskButton">Add task</string>
+    <string name="addTaskActivityTitle">Add new task</string>
+    <string name="task_name_hint">Task name</string>
+    <string name="task_date_hint">Task date</string>
+    <string name="task_date_button">Set date</string>
+    <string name="task_time_hint">Task time</string>
+    <string name="task_time_button">Set time</string>
+    <string name="add_task_button">Add</string>
 </resources>
