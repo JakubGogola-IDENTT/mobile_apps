@@ -1,6 +1,8 @@
 package com.example.zad1
 
-class Model {
+import java.io.Serializable
+
+class Model : Serializable {
 
     var listOfTask: MutableList<Task> = mutableListOf()
 

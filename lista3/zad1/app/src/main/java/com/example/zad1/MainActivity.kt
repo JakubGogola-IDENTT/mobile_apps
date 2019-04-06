@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
 
     fun onAddTaskButtonClick(view: View) {
         val addTaskIntent = Intent(this, AddTaskActivity::class.java)
-        startActivityForResult(addTaskIntent, 200)
+        addTaskIntent.putExtra("model", model)
+        startActivity(addTaskIntent)
     }
 
 }

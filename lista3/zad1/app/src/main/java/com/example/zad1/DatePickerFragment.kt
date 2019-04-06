@@ -6,10 +6,13 @@ import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.widget.DatePicker
+import android.widget.EditText
 import kotlinx.android.synthetic.main.add_task_activity.*
 import java.util.*
 
-class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
+@SuppressLint("ValidFragment")
+class DatePickerFragment(private val addTaskActivity: AddTaskActivity) :
+    DialogFragment(), DatePickerDialog.OnDateSetListener {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val c = Calendar.getInstance()
@@ -22,7 +25,9 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
 
     @SuppressLint("SetTextI18n")
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        taskDate.setText("$dayOfMonth.$month.$year")
+        addTaskActivity.date = com.example.zad1.Date(dayOfMonth, month, year)
+        //taskDate.setText("$dayOfMonth.$month.$year")
+        addTaskActivity.findViewById<EditText>(R.id.taskDate).setText("$dayOfMonth.$month.$year")
     }
 
 }

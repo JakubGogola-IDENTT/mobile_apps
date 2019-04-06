@@ -62,7 +62,8 @@
             <Button
                     android:text="@string/add_task_button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/addTaskButton"/>
+                    android:layout_height="wrap_content" android:id="@+id/addTaskButton"
+                    android:onClick="onAddTaskClick"/>
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
