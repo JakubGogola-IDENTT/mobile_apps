@@ -31,5 +31,4 @@ class DatePickerFragment(private val addTaskActivity: AddTaskActivity) :
         //taskDate.setText("$dayOfMonth.$month.$year")
         addTaskActivity.findViewById<EditText>(R.id.taskDate).setText("$dayOfMonth.$month.$year")
     }
-
 }

@@ -3,6 +3,7 @@ package com.example.zad1
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.CheckBox
@@ -12,6 +13,7 @@ import com.example.zad1.adapters.ToDoListAdapter
 import com.example.zad1.containers.Task
 import com.example.zad1.enums.SortType
 import com.example.zad1.listeners.SortSpinnerActivity
+import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -83,6 +85,16 @@ class MainActivity : AppCompatActivity() {
         println(sortType)
         controller.sort(descSort)
     }
+
+//    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
+//        super.onSaveInstanceState(outState, outPersistentState)
+//        outState?.putSerializable("listOfTasks", model.listOfTask)
+//    }
+//
+//    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+//        super.onRestoreInstanceState(savedInstanceState)
+//        model.listOfTask = savedInstanceState?.getSerializable("listOfTasks") as ArrayList<Task>
+//    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

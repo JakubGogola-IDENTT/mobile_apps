@@ -37,14 +37,14 @@ class Controller(private  val mainActivity: MainActivity, private val model: Mod
                 SortType.BY_NAME -> model.listOfTask.sortBy { model.nameSelector(it) }
                 SortType.BY_TYPE -> model.listOfTask.sortBy { model.typeSelector(it) }
                 SortType.BY_PRIORITY -> model.listOfTask.sortBy { model.prioritySelector(it) }
-                SortType.BY_DATE -> model.listOfTask.sortBy { model.prioritySelector(it) }
+                SortType.BY_DATE -> model.listOfTask.sortBy { model.dateSelector(it) }
             }
         } else {
             when (mainActivity.sortType) {
                 SortType.BY_NAME -> model.listOfTask.sortByDescending { model.nameSelector(it) }
                 SortType.BY_TYPE -> model.listOfTask.sortByDescending { model.typeSelector(it) }
                 SortType.BY_PRIORITY -> model.listOfTask.sortByDescending { model.prioritySelector(it) }
-                SortType.BY_DATE -> model.listOfTask.sortByDescending { model.prioritySelector(it) }
+                SortType.BY_DATE -> model.listOfTask.sortByDescending { model.dateSelector(it) }
             }
         }
         mainActivity.toDoListAdapter.notifyDataSetChanged()

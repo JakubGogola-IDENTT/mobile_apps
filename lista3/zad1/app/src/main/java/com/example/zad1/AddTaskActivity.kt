@@ -1,5 +1,6 @@
 package com.example.zad1
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -15,6 +16,7 @@ import com.example.zad1.listeners.TaskPrioritySpinnerActivity
 import com.example.zad1.listeners.TaskTypeSpinnerActivity
 import com.example.zad1.pickers.DatePickerFragment
 import com.example.zad1.pickers.TimePickerFragment
+import java.util.*
 
 class AddTaskActivity : AppCompatActivity() {
 
@@ -56,6 +58,8 @@ class AddTaskActivity : AppCompatActivity() {
             taskPrioritySpinner.adapter = adapter
         }
         taskPrioritySpinner.onItemSelectedListener = TaskPrioritySpinnerActivity(this)
+
+        setDefaultDateAndTime()
     }
 
     fun onTimeButtonClick(view:View) {
@@ -78,4 +82,19 @@ class AddTaskActivity : AppCompatActivity() {
         setResult(Activity.RESULT_OK, addTaskIntent)
         finish()
     }
+
+    @SuppressLint("SetTextI18n")
+    private fun setDefaultDateAndTime() {
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+        val hour = c.get(Calendar.HOUR_OF_DAY)
+        val minute = c.get(Calendar.MINUTE)
+        findViewById<EditText>(R.id.taskDate).setText("$day.$month.$year")
+        findViewById<EditText>(R.id.taskTime).setText("$hour:$minute")
+        date = Date(day, month, year)
+        time = Time(hour, minute)
+    }
+
 }
