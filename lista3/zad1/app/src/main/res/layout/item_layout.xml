@@ -3,13 +3,31 @@
               xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
               android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView" android:layout_weight="1"/>
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView2" android:layout_weight="1"/>
+              android:layout_height="wrap_content">
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" tools:srcCompat="@tools:sample/avatars[5]" android:id="@+id/taskImage"
+            android:layout_weight="1" android:contentDescription="@string/taskImage" android:layout_margin="20dp"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_weight="0.5">
+        <TextView
+                android:text="@string/task_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/taskName" android:textSize="30sp"
+                android:textStyle="bold" android:textColor="#000"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/taskDate" android:text="@string/taskDate"
+                android:textSize="18sp"/>
+        <TextView
+                android:text="@string/string_task_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/taskTime" android:textSize="18sp"/>
+        <TextView
+                android:text="@string/taskPriority"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/taskPriority" android:textSize="36sp"/>
+    </LinearLayout>
 </LinearLayout>

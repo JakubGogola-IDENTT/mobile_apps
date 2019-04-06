@@ -4,12 +4,10 @@ import com.example.zad1.containers.Task
 
 class Model {
 
-    var listOfTask: MutableList<Task> = mutableListOf()
+    var listOfTask: ArrayList<Task> = arrayListOf()
 
     fun addTask(task: Task) {
-        if (task != null) {
-            listOfTask.add(task)
-        }
+        listOfTask.add(task)
     }
 
     fun removeTaskAt(index: Int) {
