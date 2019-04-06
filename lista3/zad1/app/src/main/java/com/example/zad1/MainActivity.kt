@@ -39,6 +39,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        controller.saveList()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        controller.loadList()
+    }
+
     fun onAddTaskButtonClick(view: View) {
         val addTaskIntent = Intent(this, AddTaskActivity::class.java)
         addTaskIntent.putExtra("taskTypesArray", taskTypesArray)
