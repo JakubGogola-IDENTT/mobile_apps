@@ -74,7 +74,6 @@ class AddTaskActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        println("xDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
         println(Activity.RESULT_CANCELED)
         val addTaskIntent = Intent()
         setResult(Activity.RESULT_CANCELED, addTaskIntent)
@@ -111,7 +110,7 @@ class AddTaskActivity : AppCompatActivity() {
     private fun setDefaultDateAndTime() {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
+        val month = c.get(Calendar.MONTH) + 1
         val day = c.get(Calendar.DAY_OF_MONTH)
         val hour = c.get(Calendar.HOUR_OF_DAY)
         val minute = c.get(Calendar.MINUTE)

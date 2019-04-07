@@ -27,7 +27,7 @@ class DatePickerFragment(private val addTaskActivity: AddTaskActivity) :
 
     @SuppressLint("SetTextI18n")
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        addTaskActivity.date = Date(dayOfMonth, month, year)
+        addTaskActivity.date = Date(dayOfMonth, month + 1, year)
         addTaskActivity.findViewById<EditText>(R.id.taskDate).setText(addTaskActivity.date.toString())
     }
 }
