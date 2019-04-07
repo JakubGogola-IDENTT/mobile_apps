@@ -16,6 +16,9 @@
     <string name="taskImage"/>
     <string name="sort_button">sort</string>
     <string name="desc_sort_check_box">desc</string>
+    <string name="alert_empty_task_name">Task name cannot be empty</string>
+    <string name="alert_title">Alert</string>
+    <string name="ok">Ok</string>
     <string-array name="task_types">
         <item>Home</item>
         <item>Work</item>

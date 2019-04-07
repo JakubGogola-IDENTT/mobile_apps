@@ -2,6 +2,8 @@ package com.example.zad1
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -71,8 +73,21 @@ class AddTaskActivity : AppCompatActivity() {
     }
 
     fun onAddTaskClick(view: View) {
-        val addTaskIntent = Intent()
         taskName = findViewById<EditText>(R.id.taskName).text.toString()
+
+        if (taskName.trim().isEmpty()) {
+            val builder: AlertDialog.Builder? = this.let {
+                AlertDialog.Builder(it)
+            }
+
+            builder?.setMessage(R.string.alert_empty_task_name)!!.setTitle(R.string.alert_title)
+
+            val dialog: AlertDialog? = builder.create()
+            dialog!!.show()
+            return
+        }
+
+        val addTaskIntent = Intent()
         println(date)
         println(time)
         println(taskType)

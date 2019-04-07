@@ -28,7 +28,6 @@ class TimePickerFragment(private val addTaskActivity: AddTaskActivity) :
     @SuppressLint("SetTextI18n")
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
         addTaskActivity.time = Time(hourOfDay, minute)
-        //taskTime.setText("$hourOfDay:$minute")
-        addTaskActivity.findViewById<EditText>(R.id.taskTime).setText("$hourOfDay:$minute")
+        addTaskActivity.findViewById<EditText>(R.id.taskTime).setText(addTaskActivity.time.toString())
     }
 }
