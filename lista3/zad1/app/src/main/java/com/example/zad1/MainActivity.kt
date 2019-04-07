@@ -1,5 +1,6 @@
 package com.example.zad1
 
+import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -86,23 +87,15 @@ class MainActivity : AppCompatActivity() {
         controller.sort(descSort)
     }
 
-//    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
-//        super.onSaveInstanceState(outState, outPersistentState)
-//        outState?.putSerializable("listOfTasks", model.listOfTask)
-//    }
-//
-//    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-//        super.onRestoreInstanceState(savedInstanceState)
-//        model.listOfTask = savedInstanceState?.getSerializable("listOfTasks") as ArrayList<Task>
-//    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == 200) {
-            val task = data?.getSerializableExtra("newTask") as Task
-            model.addTask(task)
-            toDoListAdapter.notifyDataSetChanged()
+            if (resultCode == Activity.RESULT_OK) {
+                val task = data?.getSerializableExtra("newTask") as Task
+                model.addTask(task)
+                toDoListAdapter.notifyDataSetChanged()
+            }
         }
     }
 }

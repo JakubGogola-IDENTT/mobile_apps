@@ -72,6 +72,15 @@ class AddTaskActivity : AppCompatActivity() {
         DatePickerFragment(this).show(supportFragmentManager, "datePicker")
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        println("xDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+        println(Activity.RESULT_CANCELED)
+        val addTaskIntent = Intent()
+        setResult(Activity.RESULT_CANCELED, addTaskIntent)
+        finish()
+    }
+
     fun onAddTaskClick(view: View) {
         taskName = findViewById<EditText>(R.id.taskName).text.toString()
 
@@ -106,10 +115,10 @@ class AddTaskActivity : AppCompatActivity() {
         val day = c.get(Calendar.DAY_OF_MONTH)
         val hour = c.get(Calendar.HOUR_OF_DAY)
         val minute = c.get(Calendar.MINUTE)
-        findViewById<EditText>(R.id.taskDate).setText("$day.$month.$year")
-        findViewById<EditText>(R.id.taskTime).setText("$hour:$minute")
         date = Date(day, month, year)
         time = Time(hour, minute)
+        findViewById<EditText>(R.id.taskDate).setText(date.toString())
+        findViewById<EditText>(R.id.taskTime).setText(time.toString())
     }
 
 }
