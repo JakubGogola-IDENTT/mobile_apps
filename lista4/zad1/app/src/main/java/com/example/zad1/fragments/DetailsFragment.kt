@@ -27,9 +27,9 @@ class DetailsFragment : Fragment() {
             index = arguments!!.get("index") as Int
         }
 
-        imageRating.rating = image.rating
+        image_rating.rating = image.rating
 
-        imageRating.setOnRatingBarChangeListener {_, rating, _ ->
+        image_rating.setOnRatingBarChangeListener { _, rating, _ ->
             this.image.rating = rating
 
             if (activity?.resources?.configuration?.orientation == Configuration.ORIENTATION_LANDSCAPE) {

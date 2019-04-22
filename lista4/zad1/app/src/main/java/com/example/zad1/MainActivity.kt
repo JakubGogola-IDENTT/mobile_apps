@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
             layoutManager = viewManager
             adapter = viewAdapter
         }
-        //TODO: Loading images
     }
 
 

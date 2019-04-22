@@ -13,8 +13,9 @@
                 android:layout_height="match_parent" tools:srcCompat="@tools:sample/avatars[0]"
                 android:id="@+id/image" android:layout_weight="1" android:contentDescription="@string/image"/>
         <RatingBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/imageRating"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/image_rating"
+                android:layout_gravity="center_horizontal"/>
         <TextView
                 android:text="@string/description"
                 android:layout_width="match_parent"
