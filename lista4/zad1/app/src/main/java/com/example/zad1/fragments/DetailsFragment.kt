@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.details_fragment.*
 
 class DetailsFragment : Fragment() {
     private var index: Int = 0
-    private lateinit var image: Image
+    lateinit var image: Image
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.details_fragment, container, false)
@@ -25,6 +25,10 @@ class DetailsFragment : Fragment() {
         if (arguments != null) {
             image = arguments!!.get("image") as Image
             index = arguments!!.get("index") as Int
+
+            fragment_image.setImageResource(image.id)
+            image_rating.rating = image.rating
+            image_description.text = image.description
         }
 
         image_rating.rating = image.rating
@@ -33,10 +37,7 @@ class DetailsFragment : Fragment() {
             this.image.rating = rating
 
             if (activity?.resources?.configuration?.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                (activity as MainActivity).controller.onRatingChange(
-                    index,
-                    rating
-                )
+                (activity as MainActivity).controller.onRatingChange(index, rating)
             }
         }
     }

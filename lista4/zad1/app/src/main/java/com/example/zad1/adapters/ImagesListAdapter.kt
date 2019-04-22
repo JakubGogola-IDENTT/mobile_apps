@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import com.example.zad1.Image
 import com.example.zad1.MainActivity
 import com.example.zad1.R
@@ -27,17 +26,16 @@ class ImagesListAdapter(private val imageList: ArrayList<Image>) :
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        p0.bind()
-    }
+        val image = imageList[p0.adapterPosition]
+        println("position: ${p0.adapterPosition}")
+        println("id: ${image.id}")
+        p0.view.item_image.setImageResource(image.id)
+        p0.view.image_rating.rating = image.rating
 
-    inner class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        fun bind() {
-            val image = imageList[adapterPosition]
-            view.item_image.setImageResource(image.id)
-
-//            view.setOnClickListener {
-//                (context as MainActivity).laun
-//            }
+        p0.view.setOnClickListener {
+            (context as MainActivity).onDetailsActivityRender(p0.adapterPosition)
         }
     }
+
+    inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 }

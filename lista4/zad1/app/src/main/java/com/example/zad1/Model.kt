@@ -5,13 +5,13 @@ class Model {
 
     fun loadImages(ids: ArrayList<Int>) {
         for (id in ids) {
-            val image = Image(id, "", 0f)
+            val image = Image(id, "XDDDD", 0f)
             imageList.add(image)
         }
     }
 
-    fun addImage(id: Int, description: String) {
-        val image = Image(id, description, 0f)
+    fun addImage(id: Int, description: String, rating: Float) {
+        val image = Image(id, description, rating)
         imageList.add(image)
     }
 
@@ -19,11 +19,11 @@ class Model {
         imageList.removeAt(position)
     }
 
-    fun getImage(position: Int): Image? {
+    fun getImage(position: Int): Image {
         return if (position in imageList.indices) {
             imageList[position]
         } else {
-            null
+            Image(R.drawable.ic_launcher_background, "", 0f)
         }
     }
 
@@ -38,7 +38,7 @@ class Model {
     }
 
     fun sortByrating() {
-        imageList.sortBy { ratingSelector(it) }
+        imageList.sortByDescending { ratingSelector(it) }
     }
 
     private fun ratingSelector(image: Image): Float {
