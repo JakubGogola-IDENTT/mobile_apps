@@ -8,7 +8,8 @@ import com.example.zad1.adapters.ImagesListAdapter
 
 class MainActivity : AppCompatActivity() {
     private lateinit var model: Model
-    private lateinit var imageListAdapter: ImagesListAdapter
+    lateinit var imageListAdapter: ImagesListAdapter
+    lateinit var controller: Controller
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
@@ -18,14 +19,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewManager = LinearLayoutManager(this)
-        viewAdapter = ImagesListAdapter(model.imageList)
-
+        //get IDs
+        val imageIDs: ArrayList<Int> = ArrayList()
+        for (i in 1..11) {
+            val id = resources.getIdentifier("img_$i", "drawable", packageName)
+            println("id: $id")
+            imageIDs.add(id)
+        }
         model = Model()
+        model.loadImages(imageIDs)
+
+        controller = Controller(this, model)
         imageListAdapter = ImagesListAdapter(model.imageList)
 
+        viewManager = LinearLayoutManager(this)
+        viewAdapter = ImagesListAdapter(model.imageList)
+        recyclerView = findViewById<RecyclerView>(R.id.image_list).apply {
+            setHasFixedSize(true)
+            layoutManager = viewManager
+            adapter = viewAdapter
+        }
         //TODO: Loading images
     }
+
 
 
 }
