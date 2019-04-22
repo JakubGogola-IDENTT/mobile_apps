@@ -17,10 +17,6 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.details_activity)
 
-        if (savedInstanceState != null) {
-            //TODO
-        }
-
         image = intent.getSerializableExtra("image") as Image
         index = intent.getIntExtra("index", 0)
 
@@ -39,7 +35,6 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        println("Back")
         val intent = Intent()
 
         intent.putExtra("image", detailsFragment.image)

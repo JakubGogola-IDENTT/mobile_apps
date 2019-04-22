@@ -1,11 +1,12 @@
 package com.example.zad1
 
-class Model {
+class Model(private val mainActivity: MainActivity) {
     val imageList: ArrayList<Image> = arrayListOf()
 
     fun loadImages(ids: ArrayList<Int>) {
+        val description = mainActivity.resources.getString(R.string.description_content)
         for (id in ids) {
-            val image = Image(id, "XDDDD", 0f)
+            val image = Image(id, description, 0f)
             imageList.add(image)
         }
     }

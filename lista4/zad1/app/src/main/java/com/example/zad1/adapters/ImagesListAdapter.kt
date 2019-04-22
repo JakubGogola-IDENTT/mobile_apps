@@ -27,8 +27,6 @@ class ImagesListAdapter(private val imageList: ArrayList<Image>) :
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         val image = imageList[p0.adapterPosition]
-        println("position: ${p0.adapterPosition}")
-        println("id: ${image.id}")
         p0.view.item_image.setImageResource(image.id)
         p0.view.image_rating.rating = image.rating
 

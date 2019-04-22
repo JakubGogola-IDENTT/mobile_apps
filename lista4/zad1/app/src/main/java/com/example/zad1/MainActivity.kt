@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
             println("id: $id")
             imageIDs.add(id)
         }
-        model = Model()
+
+        model = Model(this)
 
         controller = Controller(this, model)
         imageListAdapter = ImagesListAdapter(model.imageList)
@@ -70,11 +71,9 @@ class MainActivity : AppCompatActivity() {
             outState.putSerializable("images", model.imageList)
             outState.putInt("index", pointedIndex)
         }
-       //supportFragmentManager.beginTransaction().remove(detailsFragment).commit()
-
     }
 
-    fun onDetailsFragmentRender(index: Int) {
+    private fun onDetailsFragmentRender(index: Int) {
         supportFragmentManager.beginTransaction().remove(detailsFragment).commit()
         println("pointed: $pointedIndex")
         detailsFragment = DetailsFragment.newInstance(index, model.getImage(index))

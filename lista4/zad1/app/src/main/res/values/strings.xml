@@ -5,4 +5,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description">TextView</string>
     <string name="image">TODO</string>
+    <string name="description_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit</string>
 </resources>
