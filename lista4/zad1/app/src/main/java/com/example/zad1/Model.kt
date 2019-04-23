@@ -1,11 +1,14 @@
 package com.example.zad1
 
+import kotlin.random.Random
+
 class Model(private val mainActivity: MainActivity) {
+    private val descriptions: Array<String> = mainActivity.resources.getStringArray(R.array.descriptions)
     val imageList: ArrayList<Image> = arrayListOf()
 
     fun loadImages(ids: ArrayList<Int>) {
-        val description = mainActivity.resources.getString(R.string.description_content)
         for (id in ids) {
+            val description = getRandomDescription()
             val image = Image(id, description, 0f)
             imageList.add(image)
         }
@@ -34,8 +37,23 @@ class Model(private val mainActivity: MainActivity) {
         }
     }
 
+    fun containsImageWithID(id: Int): Int {
+        imageList.forEachIndexed { index, element ->
+            if (element.id == id) {
+                return index
+            }
+        }
+
+        return -1
+    }
+
     fun clearImageList() {
         imageList.clear()
+    }
+
+    fun updateImage(index: Int, image: Image) {
+        imageList[index].rating = image.rating
+        imageList[index].description = image.description
     }
 
     fun sortByRating() {
@@ -44,5 +62,11 @@ class Model(private val mainActivity: MainActivity) {
 
     private fun ratingSelector(image: Image): Float {
         return image.rating
+    }
+
+    private fun getRandomDescription(): String {
+        val size = descriptions.size
+        val r = Random.nextInt(0, size)
+        return descriptions[r]
     }
 }

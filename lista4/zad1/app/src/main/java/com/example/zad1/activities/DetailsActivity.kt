@@ -25,7 +25,6 @@ class DetailsActivity : AppCompatActivity() {
         if (savedInstanceState != null) {
             image = savedInstanceState.getSerializable("image") as Image
             index = savedInstanceState.getInt("index")
-            println("ONSAVEDINSTANCE")
         }
         detailsFragment = DetailsFragment.newInstance(index, image)
         supportFragmentManager.beginTransaction().add(R.id.fragment_frame, detailsFragment).commit()
@@ -34,7 +33,6 @@ class DetailsActivity : AppCompatActivity() {
             onOrientationChange()
         }
     }
-
 
     override fun onSaveInstanceState(outState: Bundle?) {
         if (outState != null) {

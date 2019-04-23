@@ -6,4 +6,22 @@
     <string name="description">TextView</string>
     <string name="image">TODO</string>
     <string name="description_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit</string>
+    <string-array name="descriptions">
+        <item>However, I wrote a message to Frodo, and trusted to my friend the </item>
+        <item>innkeeper to send it to him. I rode away at dawn; and I came at long last to </item>
+        <item>the dwelling of Saruman. That is far south in Isengard, in the end of the </item>
+        <item>Misty Mountains, not far from the Gap of Rohan. And Boromir will tell you </item>
+        <item>that that is a great open vale that lies between the Misty Mountains and the </item>
+        <item>northmost foothills of Ered Nimrais, the White Mountains of his home. But </item>
+        <item>Isengard is a circle of sheer rocks that enclose a valley as with a wall, </item>
+        <item>and in the midst of that valley is a tower of stone called Orthanc. It was </item>
+        <item>not made by Saruman, but by the Men of NŽmenor long ago; and it is very tall </item>
+        <item>and has many secrets; yet it looks not to be a work of craft. It cannot be </item>
+        <item>reached save by passing the circle of Isengard; and in that circle there is </item>
+        <item>only one gate. </item>
+        <item>Late one evening I came to the gate, like a great arch in the wall of </item>
+        <item>rock; and it was strongly guarded. But the keepers of the gate were on the </item>
+        <item>watch for me and told me that Saruman awaited me. I rode under the arch, and </item>
+        <item>the gate closed silently behind me, and suddenly I was afraid, though I knew </item>
+    </string-array>
 </resources>

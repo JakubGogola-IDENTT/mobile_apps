@@ -11,7 +11,8 @@
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" tools:srcCompat="@tools:sample/avatars[0]"
-                android:id="@+id/fragment_image" android:layout_weight="1" android:contentDescription="@string/image"/>
+                android:id="@+id/fragment_image" android:layout_weight="1"
+                android:contentDescription="@string/image"/>
         <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/image_rating"
@@ -19,7 +20,7 @@
         <TextView
                 android:text="@string/description"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:id="@+id/image_description" android:layout_weight="1.5"
-                android:textSize="24sp" android:textAlignment="center"/>
+                android:layout_height="match_parent" android:id="@+id/image_description" android:layout_weight="1.8"
+                android:textSize="18sp" android:textAlignment="center"/>
     </LinearLayout>
 </FrameLayout>

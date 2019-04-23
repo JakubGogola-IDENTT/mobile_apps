@@ -13,7 +13,6 @@ import com.example.zad1.fragments.DetailsFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var model: Model
-    lateinit var imageListAdapter: ImagesListAdapter
     lateinit var controller: Controller
 
     private lateinit var recyclerView: RecyclerView
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        println("On create")
         //get IDs
         val imageIDs: ArrayList<Int> = getImageIDs(1, 11)
 
@@ -46,12 +45,15 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState != null) {
             val images = savedInstanceState.getSerializable("images") as ArrayList<*>
-            controller.resetImageList(images as ArrayList<Image>)
+            controller.resetImageList(images)
             pointedIndex = savedInstanceState.getInt("index", 0)
         } else {
             //Loading images from resources
             model.loadImages(imageIDs)
         }
+
+        // Load data from internal storage
+        controller.loadData()
 
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             onDetailsFragmentRender(pointedIndex)
@@ -99,6 +101,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        println("On stop")
+        controller.saveData()
     }
 
     private fun getImageIDs(lowerBound: Int, upperBound: Int): ArrayList<Int> {
