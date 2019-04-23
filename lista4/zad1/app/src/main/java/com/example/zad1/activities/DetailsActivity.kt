@@ -24,7 +24,6 @@ class DetailsActivity : AppCompatActivity() {
             image = savedInstanceState.getSerializable("image") as Image
             index = savedInstanceState.getInt("index")
         }
-
         detailsFragment = DetailsFragment.newInstance(index, image)
         supportFragmentManager.beginTransaction().add(R.id.fragment_frame, detailsFragment).commit()
     }
