@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    private var detailsFragment: DetailsFragment = DetailsFragment()
+    private lateinit var detailsFragment: DetailsFragment
 
     var pointedIndex: Int = 0
 
@@ -28,12 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //get IDs
-        val imageIDs: ArrayList<Int> = ArrayList()
-        for (i in 1..11) {
-            val id = resources.getIdentifier("img_$i", "drawable", packageName)
-            println("id: $id")
-            imageIDs.add(id)
-        }
+        val imageIDs: ArrayList<Int> = getImageIDs(1, 11)
 
         model = Model(this)
 
@@ -48,11 +43,11 @@ class MainActivity : AppCompatActivity() {
             adapter = viewAdapter
         }
 
+        detailsFragment = DetailsFragment()
+
         if (savedInstanceState != null) {
             val images = savedInstanceState.getSerializable("images") as ArrayList<*>
-
             controller.resetImageList(images as ArrayList<Image>)
-
             pointedIndex = savedInstanceState.getInt("index", 0)
         } else {
             //Loading images from resources
@@ -62,7 +57,6 @@ class MainActivity : AppCompatActivity() {
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             onDetailsFragmentRender(pointedIndex)
         }
-
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
@@ -75,7 +69,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun onDetailsFragmentRender(index: Int) {
         supportFragmentManager.beginTransaction().remove(detailsFragment).commit()
-        println("pointed: $pointedIndex")
         detailsFragment = DetailsFragment.newInstance(index, model.getImage(index))
         supportFragmentManager.beginTransaction().add(R.id.fragment_frame, detailsFragment).commit()
     }
@@ -91,26 +84,31 @@ class MainActivity : AppCompatActivity() {
         }
 
         pointedIndex = index
-        println("pointed: $pointedIndex")
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         val index: Int
 
         if (requestCode == 2137) {
             if (resultCode == Activity.RESULT_OK) {
-
                 if (data != null) {
                     index = data.getIntExtra("index", 0)
-
                     val image = data.getSerializableExtra("image") as Image
-
                     controller.onRatingChange(index, image.rating)
-                    println("Rating set")
                 }
             }
         }
     }
 
+    private fun getImageIDs(lowerBound: Int, upperBound: Int): ArrayList<Int> {
+        val ids: ArrayList<Int> = ArrayList()
+
+        for (i in lowerBound..upperBound) {
+            val id = resources.getIdentifier("img_$i", "drawable", packageName)
+            ids.add(id)
+        }
+        return ids
+    }
 }

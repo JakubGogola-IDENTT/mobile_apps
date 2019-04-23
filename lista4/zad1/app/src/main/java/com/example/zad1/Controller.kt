@@ -5,8 +5,8 @@ class Controller(private val mainActivity: MainActivity, private val model: Mode
         val imageID = model.getImage(position).id
         println("onratingpos: $position")
         model.setRating(position, rating)
-        model.sortByrating()
-        mainActivity.pointedIndex = model.imageList.indexOfFirst { it.id == imageID}
+        model.sortByRating()
+        mainActivity.pointedIndex = model.imageList.indexOfFirst { it.id == imageID }
         mainActivity.imageListAdapter.notifyDataSetChanged()
     }
 

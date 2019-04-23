@@ -20,8 +20,12 @@ class DetailsActivity : AppCompatActivity() {
         image = intent.getSerializableExtra("image") as Image
         index = intent.getIntExtra("index", 0)
 
+        if (savedInstanceState != null) {
+            image = savedInstanceState.getSerializable("image") as Image
+            index = savedInstanceState.getInt("index")
+        }
+
         detailsFragment = DetailsFragment.newInstance(index, image)
-        println("details activity index $index")
         supportFragmentManager.beginTransaction().add(R.id.fragment_frame, detailsFragment).commit()
     }
 
@@ -36,7 +40,6 @@ class DetailsActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val intent = Intent()
-
         intent.putExtra("image", detailsFragment.image)
         intent.putExtra("index", index)
         setResult(Activity.RESULT_OK, intent)

@@ -38,7 +38,7 @@ class Model(private val mainActivity: MainActivity) {
         imageList.clear()
     }
 
-    fun sortByrating() {
+    fun sortByRating() {
         imageList.sortByDescending { ratingSelector(it) }
     }
 
