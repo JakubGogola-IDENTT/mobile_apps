@@ -6,7 +6,7 @@ class Controller(private val mainActivity: MainActivity, private val model: Mode
         model.setRating(position, rating)
         model.sortByRating()
         mainActivity.pointedIndex = model.imageList.indexOfFirst { it.id == imageID }
-        mainActivity.imageListAdapter.notifyDataSetChanged()
+        mainActivity.viewAdapter.notifyDataSetChanged()
     }
 
     fun resetImageList(imageList: ArrayList<Image>) {

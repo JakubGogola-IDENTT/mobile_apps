@@ -17,8 +17,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var controller: Controller
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
+
     private lateinit var detailsFragment: DetailsFragment
 
     var pointedIndex: Int = 0
@@ -31,12 +32,10 @@ class MainActivity : AppCompatActivity() {
         val imageIDs: ArrayList<Int> = getImageIDs(1, 11)
 
         model = Model(this)
-
         controller = Controller(this, model)
-        imageListAdapter = ImagesListAdapter(model.imageList)
 
         viewManager = LinearLayoutManager(this)
-        viewAdapter = ImagesListAdapter(model.imageList)
+        viewAdapter = ImagesListAdapter(model.imageList, this)
         recyclerView = findViewById<RecyclerView>(R.id.image_list).apply {
             setHasFixedSize(true)
             layoutManager = viewManager

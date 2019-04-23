@@ -10,13 +10,10 @@ import com.example.zad1.MainActivity
 import com.example.zad1.R
 import kotlinx.android.synthetic.main.image_list_item.view.*
 
-class ImagesListAdapter(private val imageList: ArrayList<Image>) :
+class ImagesListAdapter(private val imageList: ArrayList<Image>, private val mainActivity: MainActivity) :
     RecyclerView.Adapter<ImagesListAdapter.ViewHolder>() {
 
-    private var context: Context? = null
-
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
-        context = p0.context
         val view = LayoutInflater.from(p0.context).inflate(R.layout.image_list_item, p0, false)
         return ViewHolder(view)
     }
@@ -31,7 +28,7 @@ class ImagesListAdapter(private val imageList: ArrayList<Image>) :
         p0.view.image_rating.rating = image.rating
 
         p0.view.setOnClickListener {
-            (context as MainActivity).onDetailsActivityRender(p0.adapterPosition)
+            mainActivity.onDetailsActivityRender(p0.adapterPosition)
         }
     }
 
