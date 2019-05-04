@@ -57,6 +57,7 @@ class Model(private val gameView: GameView) {
             else -> return
         }
 
+        // Change speed of ball
         if (dx <= 0) {
             dx -= 1f
         } else {
