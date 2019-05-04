@@ -1,28 +1,10 @@
 package com.example.zad1
 
 import android.graphics.Paint
+import android.graphics.RectF
 
-class Ball(private val initX: Float, private val initY: Float, val size: Float,
-           color: Paint) {
-    var x = initX
-    var y = initY
-    val color = color
-
-    fun setXPos(dx: Float) {
-        x += dx
-    }
-
-    fun setYPos(dy: Float) {
-        y += dy
-    }
-
-    fun moveBall(newX: Float, newY: Float) {
-        x = newX
-        y = newY
-    }
-
-    fun resetBall() {
-        x = initX
-        y = initY
-    }
+class Ball(private val initX: Float, private val initY: Float, private val initWidth: Float,
+             private val initHeight: Float, private val initColor: Paint) :
+        Object (initX, initY, initWidth, initHeight, initColor) {
+    var size: Float = width
 }

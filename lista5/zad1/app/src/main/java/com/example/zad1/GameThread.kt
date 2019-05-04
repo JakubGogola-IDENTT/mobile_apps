@@ -2,7 +2,6 @@ package com.example.zad1
 
 import android.graphics.Canvas
 import android.view.SurfaceHolder
-import java.lang.Exception
 
 class GameThread(private val surfaceHolder: SurfaceHolder, private val gameView: GameView) :
         Thread() {
@@ -56,5 +55,8 @@ class GameThread(private val surfaceHolder: SurfaceHolder, private val gameView:
         }
     }
 
+    fun checkCollision() {
+
+    }
 
 }

@@ -2,6 +2,7 @@ package com.example.zad1
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.SurfaceHolder
@@ -12,6 +13,8 @@ class GameView (context: Context, attributeSet: AttributeSet) :
 
     private val model: Model = Model(this)
     private val ball = model.ball
+    private val leftPlayer = model.leftPlayer
+    private val rightPlayer = model.rightPlayer
     private val gameThread : GameThread
 
     init {
@@ -30,9 +33,12 @@ class GameView (context: Context, attributeSet: AttributeSet) :
     }
 
     override fun surfaceCreated(holder: SurfaceHolder?) {
-        val ballX = (width / 2.0).toFloat()
-        val ballY = (height / 2.0).toFloat()
-        ball.moveBall(ballX, ballY)
+        var x = (width / 2.0).toFloat()
+        var y = (height / 2.0).toFloat()
+        ball.moveToPos(x, y)
+
+        x = width.toFloat()
+        rightPlayer.moveToPos(x - rightPlayer.width, 0f)
 
         gameThread.setState(true)
         gameThread.start()
@@ -45,11 +51,13 @@ class GameView (context: Context, attributeSet: AttributeSet) :
             return
         }
 
-        canvas.drawOval(RectF(ball.x, ball.y, ball.x + ball.size, ball.y + ball.size),
-                ball.color)
+        canvas.drawOval(ball.getReactF(), ball.color)
+        canvas.drawRect(leftPlayer.getReactF(), leftPlayer.color)
+        canvas.drawRect(rightPlayer.getReactF(), rightPlayer.color)
     }
 
     fun update() {
         model.updateBallPosition()
+        model.checkCollision()
     }
 }
