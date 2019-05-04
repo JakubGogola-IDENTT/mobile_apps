@@ -2,8 +2,7 @@ package com.example.zad1
 
 import android.graphics.Paint
 
-class Player(private val initX: Float, private val initY: Float, private val initWidth: Float,
-             private val initHeight: Float, private val initColor: Paint,
+class Player(initX: Float, initY: Float, initWidth: Float, initHeight: Float, initColor: Paint,
              private val gameView: GameView) :
         Object (initX, initY, initWidth, initHeight, initColor) {
 

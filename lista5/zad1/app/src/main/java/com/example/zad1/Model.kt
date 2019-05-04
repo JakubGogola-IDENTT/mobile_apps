@@ -1,7 +1,8 @@
 package com.example.zad1
 
 import android.graphics.Paint
-import com.example.zad1.PlayerSymbol.*
+import com.example.zad1.PlayerSymbol.LEFT
+import com.example.zad1.PlayerSymbol.RIGHT
 import kotlin.math.abs
 
 class Model(private val gameView: GameView) {
