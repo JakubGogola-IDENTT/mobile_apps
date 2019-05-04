@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Rect
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.SurfaceHolder
@@ -82,7 +85,16 @@ class GameView (context: Context, attributeSet: AttributeSet) :
             return
         }
 
+        // Draw middle line
+        val lineColor = Paint()
+        lineColor.setARGB(255, 255, 255, 255)
+        canvas.drawRect(RectF(width / 2f - 1, 0f, width / 2f + 1, height.toFloat()),
+                lineColor)
+
+        // Draw ball
         canvas.drawOval(ball.getReactF(), ball.color)
+
+        // Draw paddles
         canvas.drawRect(leftPlayer.getReactF(), leftPlayer.color)
         canvas.drawRect(rightPlayer.getReactF(), rightPlayer.color)
     }
