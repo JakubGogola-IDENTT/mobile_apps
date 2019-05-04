@@ -1,6 +1,7 @@
 package com.example.zad1
 
 import android.content.Context
+import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.SurfaceHolder
 import android.view.SurfaceView
@@ -22,10 +23,20 @@ class GameView (context: Context, attributeSet: AttributeSet) :
     }
 
     override fun surfaceDestroyed(holder: SurfaceHolder?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        gameThread.setState(false)
+        gameThread.join()
     }
 
     override fun surfaceCreated(holder: SurfaceHolder?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        gameThread.setState(true)
+        gameThread.start()
+    }
+
+    override fun draw(canvas: Canvas?) {
+        super.draw(canvas)
+    }
+
+    fun update() {
+
     }
 }
