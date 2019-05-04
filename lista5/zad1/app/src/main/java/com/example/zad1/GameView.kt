@@ -7,8 +7,18 @@ import android.view.SurfaceView
 
 class GameView (context: Context, attributeSet: AttributeSet) :
         SurfaceView (context, attributeSet), SurfaceHolder.Callback {
+
+    private val model: Model = Model(this)
+    private val gameThread : GameThread
+
+    init {
+        holder.addCallback(this)
+        gameThread = GameThread(holder, this)
+    }
+
     override fun surfaceChanged(holder: SurfaceHolder?, format: Int, width: Int, height: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        // Probably useless function
+        return
     }
 
     override fun surfaceDestroyed(holder: SurfaceHolder?) {
