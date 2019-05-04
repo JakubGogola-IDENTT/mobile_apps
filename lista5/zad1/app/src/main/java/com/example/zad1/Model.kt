@@ -1,6 +1,8 @@
 package com.example.zad1
 
 import android.graphics.Paint
+import com.example.zad1.PlayerSymbol.*
+import kotlin.math.abs
 
 class Model(private val gameView: GameView) {
     // Ball instance
@@ -8,9 +10,12 @@ class Model(private val gameView: GameView) {
     val leftPlayer: Player
     val rightPlayer: Player
 
+    private val playersMap: Map<PlayerSymbol, Player>
+    private var currentPlayer: PlayerSymbol = RIGHT
+
     // Deltas for ball
-    var dx = 5f
-    var dy = 5f
+    var dx = 8f
+    var dy = 8f
 
     init {
         // Ball initialization
@@ -26,6 +31,7 @@ class Model(private val gameView: GameView) {
         playerColor.setARGB(255, 255, 255, 255)
         leftPlayer = Player(0f, 0f, playerWidth, playerHeight, playerColor, gameView)
         rightPlayer = Player(0f, 0f, playerWidth, playerHeight, playerColor, gameView)
+        playersMap = mapOf(Pair(LEFT, leftPlayer), Pair(RIGHT, rightPlayer))
     }
 
     fun updateBallPosition() {
@@ -33,7 +39,7 @@ class Model(private val gameView: GameView) {
         ball.setYPos(dy)
 
         if (ball.x <= 0 || ball.right >= gameView.width) {
-//            dx = -dx
+            resetDeltas()
             ball.reset()
             ball.moveToPos(gameView.width / 2f, gameView.height / 2f)
             return
@@ -51,31 +57,51 @@ class Model(private val gameView: GameView) {
             else -> return
         }
 
+        if (dx <= 0) {
+            dx -= 1f
+        } else {
+            dx += 1f
+        }
+
         //Change dx sign
         dx = -dx
 
-        val hitPosition = player.bottom - ball.top
-        var delta = 4f
-        val bound = player.height.toInt() - 30
-        val next = bound / 30
-
-        for (pos in bound downTo 0 step next) {
-            if (hitPosition >= pos && hitPosition <= pos + 30) {
-                dy = delta
-                break
-            } else {
-                delta--
-            }
+        //val hitPosition = player.bottom - ball.top
+        val hitPosition = abs(player.top - ball.getMiddleYCoordinate())
+        when (hitPosition) {
+            in 0f..30f -> dy = -8f
+            in 30f..60f -> dy = -6f
+            in 60f..90f -> dy = -4f
+            in 90f..120f -> dy = -2f
+            in 120f..150f -> dy = 0f
+            in 150f..180f -> dy = 2f
+            in 180f..210f -> dy = 4f
+            in 210f..240f -> dy = 6f
+            in 240f..270f -> dy = 8f
+            in 270f..300f -> dy = 9f
         }
     }
 
-    // It's fucking tricky
     private fun checkCollisionWithPlayer(player: Player): Boolean {
         return when {
             ball.left > player.right -> false
             ball.right < player.left -> false
             ball.top > player.bottom -> false
             else -> ball.bottom >= player.top
+        }
+    }
+
+    private fun resetDeltas() {
+        dx = 8f
+        dy = 8f
+        currentPlayer = when {
+            ball.x <= 0 -> RIGHT
+            ball.x >= gameView.height -> LEFT
+            else -> RIGHT
+        }
+
+        if (currentPlayer == LEFT) {
+            dx = -dx
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.zad1
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
@@ -55,8 +56,9 @@ class GameView (context: Context, attributeSet: AttributeSet) :
         canvas.drawRect(rightPlayer.getReactF(), rightPlayer.color)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-//        return super.onTouchEvent(event)
+        super.onTouchEvent(event)
         if (event == null) {
             return false
         }
