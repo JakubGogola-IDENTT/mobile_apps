@@ -9,8 +9,8 @@ class Model(private val gameView: GameView) {
     val rightPlayer: Player
 
     // Deltas for ball
-    private var dx = 5f
-    private var dy = 5f
+    var dx = 5f
+    var dy = 5f
 
     init {
         // Ball initialization
@@ -24,8 +24,8 @@ class Model(private val gameView: GameView) {
         val playerHeight = 300f
         val playerColor = Paint()
         playerColor.setARGB(255, 255, 255, 255)
-        leftPlayer = Player(0f, 0f, playerWidth, playerHeight, playerColor)
-        rightPlayer = Player(0f, 0f, playerWidth, playerHeight, playerColor)
+        leftPlayer = Player(0f, 0f, playerWidth, playerHeight, playerColor, gameView)
+        rightPlayer = Player(0f, 0f, playerWidth, playerHeight, playerColor, gameView)
     }
 
     fun updateBallPosition() {
@@ -33,7 +33,10 @@ class Model(private val gameView: GameView) {
         ball.setYPos(dy)
 
         if (ball.x <= 0 || ball.right >= gameView.width) {
-            dx = -dx
+//            dx = -dx
+            ball.reset()
+            ball.moveToPos(gameView.width / 2f, gameView.height / 2f)
+            return
         }
 
         if (ball.y <= 0 || ball.bottom >= gameView.height) {
@@ -54,8 +57,9 @@ class Model(private val gameView: GameView) {
         val hitPosition = player.bottom - ball.top
         var delta = 4f
         val bound = player.height.toInt() - 30
+        val next = bound / 30
 
-        for (pos in bound downTo 0 step 30) {
+        for (pos in bound downTo 0 step next) {
             if (hitPosition >= pos && hitPosition <= pos + 30) {
                 dy = delta
                 break

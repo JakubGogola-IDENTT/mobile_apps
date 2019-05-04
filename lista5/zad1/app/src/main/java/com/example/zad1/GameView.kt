@@ -2,9 +2,8 @@ package com.example.zad1
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.RectF
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 
@@ -33,8 +32,8 @@ class GameView (context: Context, attributeSet: AttributeSet) :
     }
 
     override fun surfaceCreated(holder: SurfaceHolder?) {
-        var x = (width / 2.0).toFloat()
-        var y = (height / 2.0).toFloat()
+        var x = width / 2f
+        val y = height / 2f
         ball.moveToPos(x, y)
 
         x = width.toFloat()
@@ -54,6 +53,29 @@ class GameView (context: Context, attributeSet: AttributeSet) :
         canvas.drawOval(ball.getReactF(), ball.color)
         canvas.drawRect(leftPlayer.getReactF(), leftPlayer.color)
         canvas.drawRect(rightPlayer.getReactF(), rightPlayer.color)
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+//        return super.onTouchEvent(event)
+        if (event == null) {
+            return false
+        }
+
+        val x = event.x
+        val y = event.y
+
+        val centerWidth = width / 2f
+        val centerHeight = height / 2f
+        val delta = height / 30f
+
+        when {
+            x < centerWidth && y < centerHeight -> leftPlayer.setYPos(-delta)
+            x < centerWidth && y >= centerHeight -> leftPlayer.setYPos(delta)
+            x > centerWidth && y < centerHeight -> rightPlayer.setYPos(-delta)
+            x > centerWidth && y >= centerHeight -> rightPlayer.setYPos(delta)
+        }
+
+        return true
     }
 
     fun update() {

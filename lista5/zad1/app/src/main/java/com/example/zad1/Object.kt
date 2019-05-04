@@ -19,13 +19,13 @@ abstract class Object(private val initX: Float, private val initY: Float,
     var bottom: Float = y + height
 
 
-    fun setXPos(dx: Float) {
+    open fun setXPos(dx: Float) {
         x += dx
         left += dx
         right += dx
     }
 
-    fun setYPos(dy: Float) {
+    open fun setYPos(dy: Float) {
         y += dy
         top += dy
         bottom += dy
@@ -49,6 +49,7 @@ abstract class Object(private val initX: Float, private val initY: Float,
         y = initY
         width = initWidth
         height = initHeight
+        setPosAttributes()
     }
 
     fun getReactF(): RectF {
