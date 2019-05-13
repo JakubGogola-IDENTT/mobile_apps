@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">zad1</string>
+    <string name="app_name">NewtonAPI</string>
+    <string name="expression_input">expression</string>
+    <string name="result">result</string>
 </resources>
