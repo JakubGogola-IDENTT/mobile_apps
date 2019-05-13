@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">NewtonAPI</string>
-    <string name="expression_input">expression</string>
-    <string name="result">result</string>
+    <string name="expression_input"></string>
+    <string name="result"></string>
+    <string name="expression_hint">expression</string>
+    <string name="result_hint">result</string>
 </resources>

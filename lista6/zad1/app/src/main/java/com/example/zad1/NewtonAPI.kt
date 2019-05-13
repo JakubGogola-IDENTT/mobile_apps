@@ -7,5 +7,5 @@ import retrofit2.http.Path
 interface NewtonAPI {
     @GET("/{operation}/{expression}")
     fun getResponse(@Path("operation") operation: String,
-                    @Path("expression") expression: String) : Call<NewtonResponse>
+                    @Path("expression") expression: String) : Call<NewtonDTO>
 }

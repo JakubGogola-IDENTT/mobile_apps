@@ -1,5 +1,7 @@
 package com.example.zad1
 
+
+//15
 enum class Operation {
     SIMPLIFY {
         override fun toString(): String {
@@ -21,9 +23,9 @@ enum class Operation {
             return "integrate"
         }
     },
-    ZEROS {
+    ZEROES {
         override fun toString(): String {
-            return "zeros"
+            return "zeroes"
         }
     },
     TANGENT {
