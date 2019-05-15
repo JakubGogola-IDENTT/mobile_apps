@@ -6,7 +6,7 @@ import android.widget.TableRow
 
 class ButtonsGenerator(private val mainActivity: MainActivity) {
 
-    var buttons: MutableMap<Int, String> = mutableMapOf()
+    var buttons: MutableMap<Int, Operation> = mutableMapOf()
 
     init {
         val tableLayout = mainActivity.findViewById<TableLayout>(R.id.buttons_layout) as TableLayout
@@ -26,7 +26,7 @@ class ButtonsGenerator(private val mainActivity: MainActivity) {
                 button.textSize = 11f
                 button.text = operations[index].toString()
                 button.id = buttonID
-                buttons[buttonID] = operations[index].toString()
+                buttons[buttonID] = operations[index]
                 button.setOnClickListener {
                     mainActivity.onOperationsButtonClick(button)
                 }

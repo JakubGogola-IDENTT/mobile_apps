@@ -12,9 +12,9 @@
             android:text="@string/expression_input"
             android:ems="10"
             android:id="@+id/expression_input" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="36dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:autofillHints=""
-            app:layout_constraintHorizontal_bias="0.49" android:hint="@string/expression_hint"/>
+            app:layout_constraintHorizontal_bias="1.0" android:hint="@string/expression_hint"/>
     <TextView
             android:text="@string/result"
             android:layout_width="412dp"
@@ -22,19 +22,20 @@
             android:id="@+id/result" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintVertical_bias="0.069" android:textSize="24sp" android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@+id/expression_input" android:hint="@string/result_hint"/>
+            android:textSize="24sp" android:textAlignment="center"
+            android:hint="@string/result_hint" app:layout_constraintTop_toBottomOf="@+id/second_arg"
+            app:layout_constraintVertical_bias="0.046"/>
     <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buttons_layout" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintVertical_bias="0.124" app:layout_constraintTop_toBottomOf="@+id/result">
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.049" app:layout_constraintTop_toBottomOf="@+id/result">
 
     </TableLayout>
     <Button
-            android:text="Reset"
+            android:text="@string/reset_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/reset_button"
@@ -42,4 +43,21 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintVertical_bias="0.0"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/first_arg"
+            app:layout_constraintTop_toBottomOf="@+id/expression_input"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="12dp"
+            android:hint="@string/first_argument_hint"
+            android:autofillHints="" android:inputType="numberSigned"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:ems="10"
+            tools:layout_editor_absoluteX="99dp" android:id="@+id/second_arg"
+            app:layout_constraintTop_toBottomOf="@+id/first_arg" android:hint="@string/second_argument_hint"
+            android:autofillHints=""/>
 </androidx.constraintlayout.widget.ConstraintLayout>

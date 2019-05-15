@@ -4,4 +4,7 @@
     <string name="result"></string>
     <string name="expression_hint">expression</string>
     <string name="result_hint">result</string>
+    <string name="reset_button">Reset</string>
+    <string name="first_argument_hint">First argument</string>
+    <string name="second_argument_hint">Second argument</string>
 </resources>

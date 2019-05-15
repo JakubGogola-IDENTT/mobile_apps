@@ -37,12 +37,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onOperationsButtonClick(view: View) {
-        val operation = buttonsGenerator.buttons[view.id]
-        val expression = findViewById<TextView>(R.id.expression_input).text.toString()
+        val operation = buttonsGenerator.buttons[view.id].toString()
+        val expression = buildExpression(view.id)
 
-        println("#/$operation/$expression")
-
-        operation?.let { newtonAPI.getResponse(it, expression) }?.enqueue(object : Callback<NewtonDTO> {
+        operation.let { newtonAPI.getResponse(it, expression) }.enqueue(object : Callback<NewtonDTO> {
             val result = findViewById<TextView>(R.id.result)
 
             @SuppressLint("SetTextI18n")
@@ -66,8 +64,25 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun onResetButtonClick(view: View) {
+    private fun onResetButtonClick(view: View) {
         findViewById<TextView>(R.id.expression_input).text = ""
         findViewById<TextView>(R.id.result).text = ""
+        findViewById<TextView>(R.id.first_arg).text = ""
+        findViewById<TextView>(R.id.second_arg).text = ""
+    }
+
+
+    private fun buildExpression(id: Int): String  {
+        val operation = buttonsGenerator.buttons[id]
+        val firstArg = findViewById<TextView>(R.id.first_arg).text.toString()
+        val secondArg = findViewById<TextView>(R.id.second_arg).text.toString()
+        val expression = findViewById<TextView>(R.id.expression_input).text.toString()
+
+        return when (operation) {
+            Operation.TANGENT -> "$firstArg|$expression"
+            Operation.LOG -> "$firstArg|$expression"
+            Operation.AREA -> "$firstArg:$secondArg|$expression"
+            else -> expression
+        }
     }
 }
